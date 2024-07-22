@@ -1,132 +1,276 @@
-### Task 1: Căutare și Afișare a Vremii Curente
+# Proiect Weather App - Documentație și Ghid de Utilizare
 
-**Responsabilități:**
+## Descrierea Proiectului
 
-- **HTML:**
-  - Crearea unui formular de căutare cu un input, un buton și o secțiune pentru
-    afișarea orașelor favorite.
-  - Implementarea unei stelute pentru marcarea orașelor favorite, o iconiță GPS
-    pentru locația curentă și o listă de orașe favorite cu posibilitatea de
-    ștergere.( si extindere a listei)
-- **SCSS:**
-  - Stilizarea formularului de căutare și a listei de orașe favorite pentru a se
-    adapta la diferite dimensiuni de ecran (desktop, tabletă, mobil).
-  - Stilizarea mesajelor de eroare și a elementelor interactive pentru a
-    îmbunătăți UX-ul.
-- **JS:**
-  - Implementarea funcției de căutare pentru a prelua input-ul utilizatorului.
-  - Gestionarea orașelor favorite:
-    - Adăugarea/stergerea orașelor favorite.
-    - Afișarea listei de orașe favorite.
-    - Gestionarea stării stelutei (default sau galbenă).
-  - Implementarea funcționalității de afișare a imaginii orașului căutat în bara
-    de căutare folosind `getRandomImages`.
-  - Implementarea gestionării erorilor pentru cererile API și a elementelor
-    interactive pentru a îmbunătăți experiența utilizatorului.
-  - Exportarea funcțiilor necesare pentru a comunica cu task-urile 3 și 4 pentru
-    a actualiza cardul de vreme curentă.
+Acest proiect este o aplicație web de tip "Weather App" care afișează date meteo
+pentru un oraș specificat și o imagine relevantă a orașului folosind API-uri
+externe. Structura proiectului este concepută pentru a permite extinderea facilă
+a funcționalității prin adăugarea de noi componente și stiluri.
 
-### Task 2: Afișarea Meteo Data, Ora Curentă si Citat Inspirativ:
+## Ghid de Fork și Gestionare
 
-**Responsabilități:**
+### Realizarea Fork-ului
 
-- **HTML:**
-  - Crearea unui card pentru afișarea zilnica a datei, ziua săptămânii,
-    iconițele vremii, temperatura minima și maxima.
-  - Adăugarea unei secțiuni pentru afișarea citatului inspirator. (citatul
-    trebuie sa aibe legatura cu orasul afisat)
-- **SCSS:**
-  - Stilizarea cardului de prognoză zilnică pentru a se adapta la diferite
-    dimensiuni de ecran (desktop, tabletă, mobil).
-  - Stilizarea mesajelor de eroare și a elementelor interactive pentru a
-    îmbunătăți UX-ul.
-- **JS:**
+1. Accesează pagina proiectului pe GitHub.
+2. Apasă butonul "Fork" pentru a crea o copie a proiectului în contul tău.
 
-  - Implementarea gestionării erorilor pentru cererile API și a elementelor
-  interactive pentru a îmbunătăți experiența utilizatorului.
-  <!--  -->
+### Clonarea Proiectului
 
-### Task 3 și Task 4: Afișarea Detaliilor Avansate
+Clonează proiectul pe mașina ta locală folosind comanda:
 
-**Responsabilități:**
+```bash
+git clone https://github.com/<username>/WeatherApp.git
+```
 
-- **HTML:**
-  - Crearea secțiunii pentru detalii avansate, inclusiv butoanele "today" și "5
-    days", cardul de prognoză pe 5 zile și secțiunea detaliată a prognozei
-    orare.
-  - Crearea cardului pentru afișarea datelor meteo curente.
-- **SCSS:**
-  - Stilizarea secțiunii pentru a asigura o afișare corectă pe diferite
-    dimensiuni de ecran (desktop, tabletă, mobil).
-  - Implementarea media queries pentru a adapta stilurile la diferite dimensiuni
-    de ecran (desktop, tabletă, mobil).
-  - Stilizarea mesajelor de eroare și a elementelor interactive pentru a
-    îmbunătăți UX-ul.
-- **JS:**
+### Instalarea Dependențelor
 
-  - Implementarea funcționalităților pentru afișarea detaliilor avansate.
-  - Gestionarea stării de afișare a cardurilor și secțiunilor de prognoză meteo,
-    inclusiv trecerea între vizualizarea zilnică și cea pe 5 zile.
-  - Gestionarea stării de afișare/ascundere a secțiunilor relevante în funcție
-    de interacțiunile utilizatorului (ex. click pe butonul "more info").
-  - Implementarea gestionării erorilor pentru cererile API și a elementelor
-    interactive pentru a îmbunătăți experiența utilizatorului.
-  - Exportarea funcțiilor pentru a permite task-urilor 1 și 5 să actualizeze
-    datele meteo detaliate.
-  - Implementarea funcției pentru a obține și afișa prognoza meteo pe 5 zile
-    folosind `getWeatherForecastByCityName`.
-  - Gestionarea stării de afișare/ascundere a secțiunii de prognoză curentă și
-    secțiunii de prognoză pe 5 zile.
+Navighează în directorul proiectului și instalează dependențele folosind npm:
 
-  - Exportarea funcțiilor pentru a permite task-urilor 1, 3 și 4 să actualizeze
-    prognoza în funcție de orașul căutat.
+```bash
+cd WeatherApp
+npm install
+```
 
-### Task 5: Afișarea Graficelor Meteo
+### Pornirea Proiectului
 
-**Responsabilități:**
+Pornește proiectul local folosind comanda:
 
-- **HTML:**
-  - Crearea secțiunii pentru afișarea graficelor meteo.
-- **SCSS:**
-  - Stilizarea secțiunii pentru grafice pentru a asigura o afișare corectă pe
-    diferite dimensiuni de ecran (desktop, tabletă, mobil).
-  - Stilizarea mesajelor de eroare și a elementelor interactive pentru a
-    îmbunătăți UX-ul.
-- **JS:**
-  - Utilizarea librăriilor de graficare (ex. Chart.js) pentru a crea și popula
-    graficele cu date meteo avansate (ex. temperatură, umiditate, viteza
-    vântului și presiune atmosferică).
-  - Implementarea funcționalității pentru afișarea graficelor meteo în secțiunea
-    "Show Chart".
-  - Implementarea gestionării erorilor pentru cererile API și a elementelor
-    interactive pentru a îmbunătăți experiența utilizatorului.
-  - Exportarea funcțiilor pentru a permite task-urilor 1, 3 și 4 să actualizeze
-    graficele în funcție de orașul căutat.
+```bash
+npm run start
+```
 
-## UX-ul (User Experience)
+### Adăugarea Noilor Funcționalități
 
-reprezintă experiența utilizatorului și se referă la ansamblul de sentimente,
-emoții și reacții pe care o persoană le are în timpul interacțiunii cu un
-produs, sistem sau serviciu. Aceasta include aspecte precum:
+1. **Adaugă fișierele HTML și JS în `partials`**: Creează componentele necesare
+   și include-le în `index.html`.
+2. **Adaugă fișierele SCSS în `sass`**: Stilizează noile componente și
+   compilează SCSS în CSS.
+3. **Extinde API-urile**: Adaugă noi funcții în fișierele din folderul `api` și
+   importă-le în fișierele necesare.
 
-1. **Ușurința de utilizare**: Cât de simplu și intuitiv este pentru utilizator
-   să folosească produsul.
-2. **Utilitate**: Măsura în care produsul satisface nevoile și așteptările
-   utilizatorului.
-3. **Accesibilitate**: Cât de accesibil este produsul pentru diverse categorii
-   de utilizatori, inclusiv cei cu dizabilități.
-4. **Funcționalitate**: Gradul în care produsul își îndeplinește scopul pentru
-   care a fost creat.
-5. **Design vizual**: Estetica produsului și cât de plăcut este pentru
-   utilizator din punct de vedere vizual.
-6. **Performanță**: Viteza și eficiența cu care produsul funcționează.
+### Commit și Push
 
-Un UX bun este crucial pentru succesul oricărui produs digital, deoarece poate
-influența semnificativ satisfacția utilizatorului și loialitatea acestuia față
-de brand. Procesul de design al UX implică cercetarea utilizatorilor,
-prototiparea, testarea și iterarea continuă pentru a asigura că produsul final
-este cât mai potrivit pentru utilizatori.
+După ce ai făcut modificările, adaugă, commit și push:
 
-## Animation css:
+```bash
+git add .
+git commit -m "Added new functionality"
+git push origin main
+```
 
-- `https://www.youtube.com/watch?v=nJ81DFmgHdU`
+### Crearea unui Pull Request
+
+1. Accesează pagina proiectului tău pe GitHub.
+2. Apasă butonul "New Pull Request".
+3. Descrie modificările tale și trimite Pull Request-ul pentru a fi revizuit și
+   integrat în proiectul principal.
+
+## Structura Fișierelor
+
+- **index.html**: Fișierul principal HTML care include toate componentele
+  necesare ale aplicației.
+- **index.js**: Fișierul principal JavaScript care inițializează componentele
+  aplicației.
+- **index.css**: Fișierul CSS principal care include stilurile pentru întreaga
+  aplicație.
+- **apiOpenWeather.js**: Funcții pentru interacțiunea cu OpenWeather API.
+- **apiPixabay.js**: Funcții pentru interacțiunea cu Pixabay API.
+
+### Exemple (cum ar trebui să arate)
+
+- **partials/**: Conține fișiere HTML și JS pentru componentele aplicației.
+  - **searchExample.html**: Componente pentru bara de căutare.
+  - **weather-cardExample.html**: Componente pentru cardul meteo.
+  - **searchExample.js**: Logica pentru bara de căutare.
+  - **weather-cardExample.js**: Logica pentru afișarea datelor meteo și imaginii
+    orașului.
+- **sass/**: Conține fișiere SCSS pentru stilizarea componentelor.
+  - **searchExample.scss**: Stiluri pentru bara de căutare.
+  - **weather-cardExample.scss**: Stiluri pentru cardul meteo.
+
+## Funcționarea Codului și Încărcarea Componentelor
+
+### index.html
+
+Fișierul `index.html` include componentele HTML și scripturile necesare pentru
+funcționarea aplicației. Componentele din folderul `partials` sunt incluse în
+`index.html` folosind tag-ul `<include>`. Este esențial să înțelegem rolul
+acestui tag și modul în care acesta facilitează structura și organizarea
+codului.
+
+#### Detalii despre Tag-ul `<include>`
+
+Tag-ul `<include>` este un mecanism care permite includerea unor fișiere HTML
+externe în documentul principal HTML. Acest lucru oferă mai multe avantaje, în
+special pentru proiectele mari sau aplicațiile web care au nevoie de o structură
+modulară și de o gestionare ușoară a componentelor.
+
+##### Beneficiile utilizării Tag-ului `<include>`:
+
+1. **Modularitate**: Permite dezvoltatorilor să împartă aplicația în componente
+   mai mici și mai gestionabile. Fiecare componentă poate fi dezvoltată și
+   întreținută separat, ceea ce face mai ușor adăugarea, eliminarea sau
+   modificarea unei anumite părți a aplicației fără a afecta întregul cod.
+
+2. **Reutilizarea codului**: Componentele pot fi reutilizate în mai multe părți
+   ale aplicației fără a fi necesară duplicarea codului. De exemplu, o bară de
+   căutare sau un card meteo pot fi incluse în mai multe pagini ale aplicației.
+
+3. **Îmbunătățirea organizării codului**: Separarea componentelor în fișiere
+   individuale ajută la menținerea codului curat și organizat. Acest lucru este
+   deosebit de important în cazul proiectelor mari, unde codul poate deveni
+   rapid dificil de gestionat.
+
+4. **Întreținere ușoară**: Fișierele individuale sunt mai ușor de întreținut și
+   de actualizat. Orice modificare făcută într-un fișier component se reflectă
+   automat în toate locurile unde este inclus acel fișier, reducând riscul de
+   erori și inconsistențe.
+
+##### Cum funcționează Tag-ul `<include>`:
+
+- **Sintaxa**: `<include src="./path/to/file.html"></include>`. Atributele
+  tag-ului includ:
+
+  - `src`: Specifică calea către fișierul HTML care trebuie inclus. Aceasta
+    poate fi o cale relativă sau absolută, în funcție de locația fișierului.
+  - **Exemplu**: `<include src="./partials/search.html"></include>` va include
+    conținutul fișierului `search.html` din folderul `partials`.
+
+- **Ordinea includerii**: Este important să plasezi tag-urile `<include>` în
+  ordinea în care vrei să apară componentele pe pagină. De exemplu, dacă bara de
+  căutare trebuie să apară înaintea cardului meteo, tag-ul
+  `<include src="./partials/search.html"></include>` trebuie plasat înaintea
+  tag-ului `<include src="./partials/weather-card.html"></include>`.
+
+- **Includerea scripturilor**: Tag-ul `<include>` poate fi utilizat și pentru
+  includerea scripturilor externe, asigurându-se că toate funcționalitățile
+  necesare sunt disponibile la încărcarea paginii.
+
+### index.js
+
+Fișierul `index.js` este responsabil pentru inițializarea componentelor și
+interacțiunea cu API-urile. Importă funcțiile de inițializare din fișierele JS
+ale componentelor și le apelează la încărcarea paginii:
+
+```javascript
+import { initializeSearch } from './partials/search.js';
+import { initializeWeatherCard } from './partials/weather-card.js';
+
+document.addEventListener('DOMContentLoaded', async () => {
+  initializeSearch(); // Inițializează bara de căutare
+  initializeWeatherCard(); // Inițializează cardul meteo și afișează datele pentru București
+});
+```
+
+Importul în JavaScript permite reutilizarea codului din alte fișiere, făcând
+aplicația modulară și ușor de gestionat. Funcțiile de inițializare sunt apelate
+la încărcarea paginii pentru a asigura că toate componentele sunt pregătite
+pentru utilizare.
+
+### Extinderea Funcționalității
+
+#### Adăugarea unei noi componente HTML și JS
+
+1. Creează un fișier HTML în folderul `partials` (e.g., `new-component.html`).
+2. Creează un fișier JS corespunzător în același folder (e.g.,
+   `new-component.js`).
+
+#### Include componentele în index.html
+
+Adaugă tag-ul `<include src="./partials/new-component.html"></include>` în
+`index.html`.
+
+### Inițializează componentele în index.js
+
+Pentru a inițializa componentele în `index.js`, trebuie să importăm funcțiile de
+inițializare din fișierele JavaScript corespunzătoare componentelor și să apelăm
+aceste funcții în evenimentul `DOMContentLoaded`.
+
+#### Importul funcțiilor din fișierele JS
+
+În `index.js`, importăm funcțiile de inițializare din fișierele JS ale
+componentelor. De exemplu:
+
+```javascript
+import { initializeSearch } from './partials/searchExample.js';
+import { initializeWeatherCard } from './partials/weather-cardExample.js';
+```
+
+Aceasta permite reutilizarea codului din alte fișiere și face aplicația modulară
+și ușor de gestionat.
+
+#### Apelarea funcțiilor de inițializare
+
+După importarea funcțiilor, le apelăm în evenimentul `DOMContentLoaded` pentru a
+ne asigura că toate componentele sunt inițializate corect după încărcarea
+completă a paginii.
+
+```javascript
+document.addEventListener('DOMContentLoaded', async () => {
+  functionName();
+});
+```
+
+### Exportul funcțiilor
+
+Pentru a putea importa funcțiile dintr-un fișier JS, acestea trebuie exportate.
+Iată cum poți face acest lucru:
+
+1. **Definirea funcției**:
+
+   În fișierul JS, definești funcția pe care vrei să o exporți:
+
+   ```javascript
+   function functionName() {
+     // Logica pentru inițializarea barei de căutare
+   }
+   ```
+
+2. **Exportul funcției**:
+
+   Adaugi funcția la exporturi pentru a o face disponibilă pentru import în alte
+   fișiere:
+
+   ```javascript
+   export { functionName };
+   ```
+
+Astfel, funcția `functionName` devine disponibilă pentru import în alte fișiere
+JavaScript, cum ar fi `index.js`.
+
+Prin utilizarea exportului și importului, poți organiza codul în module,
+făcându-l mai ușor de întreținut și extins.
+
+#### Stilizarea componentei
+
+1. Creează un fișier SCSS în folderul `sass` (e.g., `new-component.scss`).
+2. Include stilurile SCSS în `index.css` folosind un compilator SCSS (de
+   exemplu, Parcel, webpack).
+
+Importul SCSS folosind `@import` în CSS permite organizarea și gestionarea mai
+bună a stilurilor, făcându-le modulare și ușor de extins.
+
+```scss
+@import './sass/searchExample.scss';
+@import './sass/weather-cardExample.scss';
+```
+
+Crearea unui fișier SCSS pentru fiecare componentă ajută la menținerea unei
+structuri clare și la izolarea stilurilor specifice fiecărei componente.
+
+## Utilizarea API-urilor
+
+Pentru a utiliza funcțiile din fișierele API, importă funcțiile necesare în
+fișierul JS al componentei tale și apelează-le după cum este necesar.
+
+```javascript
+import { getWeatherByCityName } from './api/apiOpenWeather.js';
+
+getWeatherByCityName('București')
+  .then(data => {
+    console.log(data);
+  })
+  .catch(error => {
+    console.error('Error fetching weather data:', error);
+  });
+```
