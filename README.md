@@ -1,43 +1,56 @@
-# Proiect Weather App - Documentație și Ghid de Utilizare
 
-## Descrierea Proiectului
+#### Proiect Weather App - Documentație și Ghid de Utilizare
 
-Acest proiect este o aplicație web de tip "Weather App" care afișează date meteo
-pentru un oraș specificat și o imagine relevantă a orașului folosind API-uri
-externe. Structura proiectului este concepută pentru a permite extinderea facilă
-a funcționalității prin adăugarea de noi componente și stiluri.
+### Descrierea Proiectului
+
+Acest proiect este o aplicație web de tip "Weather App" care afișează date meteo pentru un oraș specificat și o imagine relevantă a orașului folosind API-uri externe. Structura proiectului este concepută pentru a permite extinderea facilă a funcționalității prin adăugarea de noi componente și stiluri.
 
 ## Ghid de Fork și Gestionare
 
 ### Realizarea Fork-ului
 
-1. Accesează pagina proiectului pe GitHub.
-2. Apasă butonul "Fork" pentru a crea o copie a proiectului în contul tău.
+1. **Accesează pagina proiectului pe GitHub:**
+   - Mergi la pagina proiectului original pe GitHub. De exemplu, dacă proiectul se află la `https://github.com/originaluser/WeatherApp`, vizitează acest URL.
 
-### Clonarea Proiectului
+2. **Realizează Fork-ul:**
+   - Apasă pe butonul "Fork" situat în colțul din dreapta sus al paginii. Acesta va crea o copie a proiectului în contul tău GitHub.
 
-Clonează proiectul pe mașina ta locală folosind comanda:
+### Clonarea Proiectului cu GitHub Desktop
 
-```bash
-git clone https://github.com/<username>/WeatherApp.git
-```
+1. **Deschide GitHub Desktop:**
+   - Asigură-te că ai instalat GitHub Desktop. Dacă nu, descarcă și instalează aplicația de pe [GitHub Desktop](https://desktop.github.com/).
+
+2. **Clonează proiectul:**
+   - După ce ai realizat fork-ul, vei fi redirecționat către copia proiectului din contul tău GitHub. Link-ul ar trebui să fie ceva de genul `https://github.com/<username>/WeatherApp`.
+   - Copiază URL-ul acestui repository.
+
+3. **Deschide GitHub Desktop și selectează opțiunea de clonare:**
+   - În GitHub Desktop, apasă pe `File` în meniul de sus și selectează `Clone repository...`.
+   - În fereastra care apare, selectează tab-ul `URL`.
+   - Lipește URL-ul copiat al repository-ului din contul tău GitHub.
+   - Selectează opțiunea `For my own purposes`.
+   - Alege locația pe disc unde vrei să clonezi repository-ul și apasă pe butonul `Clone`.
 
 ### Instalarea Dependențelor
 
-Navighează în directorul proiectului și instalează dependențele folosind npm:
-
-```bash
-cd WeatherApp
-npm install
-```
+1. **Instalează dependențele:**
+   - Rulează comanda următoare pentru a instala toate dependențele specificate în `package.json`:
+   ```bash
+   npm install
+   ```
 
 ### Pornirea Proiectului
 
-Pornește proiectul local folosind comanda:
+1. **Rulează proiectul local:**
+   - După ce dependențele sunt instalate, pornește serverul de dezvoltare folosind comanda:
+   ```bash
+   npm run start
+   ```
 
-```bash
-npm run start
-```
+2. **Accesează aplicația în browser:**
+   - După ce serverul de dezvoltare pornește, deschide browser-ul și navighează la `http://localhost:1234` (sau alt port specificat) pentru a vedea aplicația Weather App în acțiune.
+
+Urmează acești pași și vei avea proiectul "Weather App" rulând pe mașina ta locală. Dacă întâmpini probleme sau ai nevoie de ajutor suplimentar, nu ezita să cauți documentația oficială a instrumentelor pe care le folosești sau să ceri ajutor în comunitățile de dezvoltatori.
 
 ### Adăugarea Noilor Funcționalități
 
