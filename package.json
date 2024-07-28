@@ -19,6 +19,8 @@
     "url": "https://github.com/MatacheAlexandru/WeatherApp-TeamWork/issues"
   },
   "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.19.2",
     "modern-normalize": "^1.1.0",
     "node-fetch": "^3.3.2"
   },
