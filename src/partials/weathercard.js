@@ -1,27 +1,69 @@
-function initializeWeatherCard(weatherData) {
-  const weatherDataContainer = document.getElementById(
-    'weather-data-container'
-  );
-  if (weatherDataContainer) {
-    weatherDataContainer.innerHTML = `
-      <div class="weather-today-card">
-        <div class="city-card">
-          <div class="today-icon">
-            <h3 class="current-city">${weatherData.name}</h3>
-            <img src="http://openweathermap.org/img/wn/${weatherData.weather[0].icon}.png" alt="Weather Icon" class="weather-icon">
-          </div>
-          <div class="today-degrees">
-            <span class="temp">${weatherData.main.temp}°C</span>
-          </div>
-          <div class="minmax-temp">
-            <div class="min">Min: ${weatherData.main.temp_min}°C</div>
-            <span class="divide-line">|</span>
-            <div class="max">Max: ${weatherData.main.temp_max}°C</div>
-          </div>
-        </div>
-      </div>
-    `;
+import {
+  getWeatherByCoordinates,
+  getReverseGeocoding,
+  getWeatherByCityName,
+} from '../apiOpenWeather.js';
+import { setBackgroundForCity } from './backgroundImage.js';
+
+export function displayWeatherDataOnCard(data) {
+  const cityNameElement = document.getElementById('city-name');
+  const temperatureElement = document.getElementById('temperature');
+  const descriptionElement = document.getElementById('description');
+  const humidityElement = document.getElementById('humidity');
+  const weatherCardElement = document.getElementById('weather-card');
+
+  if (
+    cityNameElement &&
+    temperatureElement &&
+    descriptionElement &&
+    humidityElement &&
+    weatherCardElement
+  ) {
+    cityNameElement.textContent = data.name;
+    temperatureElement.textContent = `Temperature: ${data.main.temp} °C`;
+    descriptionElement.textContent = `Description: ${data.weather[0].description}`;
+    humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
+
+    setBackgroundForCity(data.name);
+  } else {
+    console.error('One or more elements not found in the DOM');
   }
 }
 
-export { initializeWeatherCard };
+export async function fetchAndDisplayWeatherForCity(city) {
+  try {
+    const data = await getWeatherByCityName(city);
+    displayWeatherDataOnCard(data);
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
+}
+
+export async function fetchAndDisplayWeatherForLocation(lat, lon) {
+  try {
+    const data = await getWeatherByCoordinates(lat, lon);
+    const locationData = await getReverseGeocoding(lat, lon);
+    data.name = locationData[0].name;
+    displayWeatherDataOnCard(data);
+  } catch (error) {
+    console.error('Error fetching weather data:', error);
+  }
+}
+
+export function initializeWeatherCard() {
+  if (navigator.geolocation) {
+    navigator.geolocation.getCurrentPosition(
+      position => {
+        const { latitude, longitude } = position.coords;
+        fetchAndDisplayWeatherForLocation(latitude, longitude);
+      },
+      error => {
+        console.error('Error getting location:', error);
+        fetchAndDisplayWeatherForCity('București');
+      }
+    );
+  } else {
+    console.error('Geolocation is not supported by this browser');
+    fetchAndDisplayWeatherForCity('București');
+  }
+}
