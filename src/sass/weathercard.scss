@@ -1,0 +1,86 @@
+.weather-card {
+    position: absolute;
+    right: 0;
+    width: 100%;
+    border-radius: 35px;
+    background-color: #102136;
+    box-shadow: 0 8px 43px 0 rgba(16, 33, 54, .59);
+    padding: 30px 0 38px;
+    margin-bottom: 32px;
+    justify-content: space-between;
+    //modif af ==
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    //==
+}
+
+.city-name {
+    font-size: 18px;
+    line-height: 1.222;
+    margin-bottom: 26px;
+    font-size: 16px;
+    color: hsla(0, 0%, 100%, .302);
+    line-height: 1.375;
+    margin-bottom: 20px;
+}
+
+.temperature-card {
+    font-size: 2em;
+    margin: 10px 0;
+    color: #FFFFFF;
+  }
+
+  .divide-line {
+    margin: 0 10px;
+  }
+
+  .description {
+    color: #FFFFFF;
+  }
+
+  .min-temp,
+  .max-temp,
+  .humidity {
+    color: hsla(0, 0%, 100%, .302);
+  }
+
+  .min-temp,
+  .max-temp {
+    margin-bottom: 0;
+  }
+
+  .min-text,
+  .max-text {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    color: hsla(0, 0%, 100%, .302);
+  }
+.min,
+.max {
+    display: flex;
+    padding: 0 10px;
+}
+
+.min {
+    border-right: 2px solid hsla(0, 0%, 100%, .302);
+}
+
+.divide-line {
+height: 40px;
+}
+
+.temps-divide {
+    display: flex;
+}
+
+
+
+
+
+@media (min-width: 768px) {
+    .weather-card {
+        width: 492px;
+    }
+}

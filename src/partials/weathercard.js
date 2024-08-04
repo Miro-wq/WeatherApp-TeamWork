@@ -11,6 +11,8 @@ export function displayWeatherDataOnCard(data) {
   const temperatureElement = document.getElementById('temperature');
   const descriptionElement = document.getElementById('description');
   const humidityElement = document.getElementById('humidity');
+  const minTempElement = document.getElementById('min-temp');
+  const maxTempElement = document.getElementById('max-temp');
   const weatherCardElement = document.getElementById('weather-card');
 
   if (
@@ -18,12 +20,16 @@ export function displayWeatherDataOnCard(data) {
     temperatureElement &&
     descriptionElement &&
     humidityElement &&
+    minTempElement &&
+    maxTempElement &&
     weatherCardElement
   ) {
     cityNameElement.textContent = data.name;
-    temperatureElement.textContent = `Temperature: ${data.main.temp} °C`;
-    descriptionElement.textContent = `Description: ${data.weather[0].description}`;
+    temperatureElement.textContent = `${data.main.temp} °C`;
+    descriptionElement.textContent = `${data.weather[0].description}`;
     humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
+    minTempElement.textContent = `${data.main.temp_min} °C`;
+    maxTempElement.textContent = `${data.main.temp_max} °C`;
 
     setBackgroundForCity(data.name);
   } else {
