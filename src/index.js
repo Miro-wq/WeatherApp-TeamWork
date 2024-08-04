@@ -1,9 +1,7 @@
-import { initializeSearch } from './partials/searchBar-bckImg.js'; // Calea corectă
-import { initializeWeatherCard } from './partials/weathercard.js'; // Calea corectă
+import { initializeSearch } from './partials/searchBar';
+import { initializeWeatherCard } from './partials/weathercard.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  // Inițializează bara de căutare
-  initializeSearch((weatherData) => {
-    initializeWeatherCard(weatherData);
-  });
+  initializeSearch(); // Inițializează bara de căutare
+  initializeWeatherCard(); // Inițializează cardul meteo și afișează datele pentru București
 });
