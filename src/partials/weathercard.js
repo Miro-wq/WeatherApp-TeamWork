@@ -2,6 +2,7 @@ import {
   getWeatherByCoordinates,
   getReverseGeocoding,
   getWeatherByCityName,
+  getWeatherForecastByCityName
 } from '../apiOpenWeather.js';
 import { setBackgroundForCity } from './backgroundImage.js';
 import { fetchAdditionalWeatherData } from './additionalWeather.js';
@@ -35,7 +36,31 @@ export function displayWeatherDataOnCard(data) {
   } else {
     console.error('One or more elements not found in the DOM');
   }
-  fetchAdditionalWeatherData(data.name); // Afișează și datele adiționale
+  fetchAdditionalWeatherData(data.name);
+}
+
+export function displayFiveDayForecast(data) {
+  const forecastContainer = document.getElementById('forecast-container');
+  forecastContainer.innerHTML = ''; 
+
+  data.list.forEach((forecast, index) => {
+    if (index % 8 === 0) { 
+      const forecastElement = document.createElement('div');
+      forecastElement.classList.add('forecast-day');
+
+      const date = new Date(forecast.dt * 1000);
+      const dateString = date.toLocaleDateString();
+
+      forecastElement.innerHTML = `
+        <h3>${dateString}</h3>
+        <p>Min: ${forecast.main.temp_min} °C</p>
+        <p>Max: ${forecast.main.temp_max} °C</p>
+        <p>${forecast.weather[0].description}</p>
+      `;
+
+      forecastContainer.appendChild(forecastElement);
+    }
+  });
 }
 
 export async function fetchAndDisplayWeatherForCity(city) {
@@ -73,5 +98,27 @@ export function initializeWeatherCard() {
   } else {
     console.error('Geolocation is not supported by this browser');
     fetchAndDisplayWeatherForCity('București');
+  }
+
+  const todayButton = document.getElementById('today-weather');
+  const fiveDayButton = document.getElementById('five-day-forecast');
+
+  if (todayButton) {
+    todayButton.addEventListener('click', () => {
+      const city = document.getElementById('city-name').textContent;
+      fetchAndDisplayWeatherForCity(city);
+    });
+  }
+
+  if (fiveDayButton) {
+    fiveDayButton.addEventListener('click', async () => {
+      const city = document.getElementById('city-name').textContent;
+      try {
+        const data = await getWeatherForecastByCityName(city);
+        displayFiveDayForecast(data);
+      } catch (error) {
+        console.error('Error fetching 5-day forecast data:', error);
+      }
+    });
   }
 }
