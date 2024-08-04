@@ -4,6 +4,7 @@ import {
   getWeatherByCityName,
 } from '../apiOpenWeather.js';
 import { setBackgroundForCity } from './backgroundImage.js';
+import { fetchAdditionalWeatherData } from './additionalWeather.js';
 
 export function displayWeatherDataOnCard(data) {
   const cityNameElement = document.getElementById('city-name');
@@ -28,6 +29,7 @@ export function displayWeatherDataOnCard(data) {
   } else {
     console.error('One or more elements not found in the DOM');
   }
+  fetchAdditionalWeatherData(data.name); // Afișează și datele adiționale
 }
 
 export async function fetchAndDisplayWeatherForCity(city) {
