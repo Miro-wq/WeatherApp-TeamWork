@@ -1,13 +1,13 @@
 const API_KEY = 'c28b86768a874c70b1ecd1343e8f0f24';
 const BASE_URL = 'https://api.openweathermap.org/data/2.5';
-const GEO_BASE_URL = 'http://api.openweathermap.org/geo/1.0';
+const GEO_BASE_URL = 'https://api.openweathermap.org/geo/1.0';
 const MAP_BASE_URL = 'https://tile.openweathermap.org/map';
 
 async function fetchFromAPI(url) {
   try {
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTPS error! status: ${response.status}`);
     }
     const data = await response.json();
     return data;
@@ -129,7 +129,7 @@ async function getWeatherMap(layer, zoom, x, y) {
     const url = `${MAP_BASE_URL}/${layer}/${zoom}/${x}/${y}.png?appid=${API_KEY}`;
     const response = await fetch(url);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
+      throw new Error(`HTTPS error! status: ${response.status}`);
     }
     return response;
   } catch (error) {
@@ -171,7 +171,7 @@ async function getAirPollutionHistory(lat, lon, start, end) {
 
 // Obține URL-ul iconiței meteo
 function getWeatherIconUrl(iconCode) {
-  return `http://openweathermap.org/img/wn/${iconCode}.png`;
+  return `https://openweathermap.org/img/wn/${iconCode}.png`;
 }
 
 export {
