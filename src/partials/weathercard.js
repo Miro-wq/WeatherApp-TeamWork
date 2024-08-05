@@ -15,6 +15,8 @@ export function displayWeatherDataOnCard(data) {
   const minTempElement = document.getElementById('min-temp');
   const maxTempElement = document.getElementById('max-temp');
   const weatherCardElement = document.getElementById('weather-card');
+  const forecastContainer = document.getElementById('forecast-container');
+  const chartContainer = document.getElementById('chart-container');
 
   if (
     cityNameElement &&
@@ -26,13 +28,20 @@ export function displayWeatherDataOnCard(data) {
     weatherCardElement
   ) {
     cityNameElement.textContent = data.name;
-    temperatureElement.textContent = `${data.main.temp} °C`;
-    descriptionElement.textContent = `${data.weather[0].description}`;
+    temperatureElement.textContent = `${Math.round(data.main.temp)}`;
+    descriptionElement.innerHTML = `<img src="${getWeatherIconUrl(data.weather[0].icon)}" alt="${data.weather[0].description}" title="${data.weather[0].description}">`;
     humidityElement.textContent = `Humidity: ${data.main.humidity}%`;
-    minTempElement.textContent = `${data.main.temp_min} °C`;
-    maxTempElement.textContent = `${data.main.temp_max} °C`;
+    minTempElement.textContent = `${Math.round(data.main.temp_min)} °C`;
+    maxTempElement.textContent = `${Math.round(data.main.temp_max)} °C`;
 
     setBackgroundForCity(data.name);
+    
+    if (forecastContainer) {
+      forecastContainer.style.display = 'none';
+    }
+    if (chartContainer) {
+      chartContainer.style.display = 'none';
+    }
   } else {
     console.error('One or more elements not found in the DOM');
   }
@@ -41,26 +50,46 @@ export function displayWeatherDataOnCard(data) {
 
 export function displayFiveDayForecast(data) {
   const forecastContainer = document.getElementById('forecast-container');
+  const chartContainer = document.getElementById('chart-container');
+  const forecastLocationElement = document.getElementById('forecast-location');
+
   forecastContainer.innerHTML = ''; 
 
+  forecastLocationElement.textContent = data.city.name;
+
   data.list.forEach((forecast, index) => {
-    if (index % 8 === 0) { 
+    if (index % 8 === 0) {
       const forecastElement = document.createElement('div');
       forecastElement.classList.add('forecast-day');
 
       const date = new Date(forecast.dt * 1000);
-      const dateString = date.toLocaleDateString();
+      const dayName = date.toLocaleDateString('en-US', { weekday: 'long' });
+      const dateString = date.toLocaleDateString('en-US', { day: 'numeric', month: 'short' });
 
       forecastElement.innerHTML = `
-        <h3>${dateString}</h3>
-        <p>Min: ${forecast.main.temp_min} °C</p>
-        <p>Max: ${forecast.main.temp_max} °C</p>
-        <p>${forecast.weather[0].description}</p>
+        <h3 class="date">${dayName}</h3>
+        <p class="date">${dateString}</p>
+        <img src="${getWeatherIconUrl(forecast.weather[0].icon)}" alt="${forecast.weather[0].description}">
+        <p class="temp temp-min">${Math.round(forecast.main.temp_min)}°C</p>
+        <p class="temp temp-max">${Math.round(forecast.main.temp_max)}°C</p>
+        <p class="more-info">more info</p>
       `;
 
       forecastContainer.appendChild(forecastElement);
     }
   });
+
+  if (forecastContainer) {
+    forecastContainer.style.display = 'flex';
+    forecastContainer.style.justifyContent = 'space-around';
+  }
+  if (chartContainer) {
+    chartContainer.style.display = 'block';
+  }
+}
+
+function getWeatherIconUrl(iconCode) {
+  return `https://openweathermap.org/img/wn/${iconCode}.png`;
 }
 
 export async function fetchAndDisplayWeatherForCity(city) {
@@ -102,11 +131,14 @@ export function initializeWeatherCard() {
 
   const todayButton = document.getElementById('today-weather');
   const fiveDayButton = document.getElementById('five-day-forecast');
+  const showChartButton = document.getElementById('show-chart');
+  const chartContent = document.getElementById('chart-content');
 
   if (todayButton) {
     todayButton.addEventListener('click', () => {
       const city = document.getElementById('city-name').textContent;
       fetchAndDisplayWeatherForCity(city);
+      todayButton.focus();
     });
   }
 
@@ -116,9 +148,17 @@ export function initializeWeatherCard() {
       try {
         const data = await getWeatherForecastByCityName(city);
         displayFiveDayForecast(data);
+        fiveDayButton.focus();
       } catch (error) {
         console.error('Error fetching 5-day forecast data:', error);
       }
+    });
+  }
+
+  if (showChartButton) {
+    showChartButton.addEventListener('click', () => {
+      chartContent.innerHTML = '<p>Aici va fi afișat graficul cu vremea.</p>';
+      showChartButton.focus();
     });
   }
 }
