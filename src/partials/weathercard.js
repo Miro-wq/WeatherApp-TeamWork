@@ -80,8 +80,10 @@ export function displayFiveDayForecast(data) {
   });
 
   if (forecastContainer) {
+
     forecastContainer.style.display = 'flex';
     forecastContainer.style.justifyContent = 'space-around';
+    forecastContainer.style.display = 'block';
   }
   if (chartContainer) {
     chartContainer.style.display = 'block';
