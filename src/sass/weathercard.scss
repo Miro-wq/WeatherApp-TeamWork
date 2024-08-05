@@ -4,10 +4,9 @@
   align-items: center;
   position: absolute;
   right: 0;
+  overflow-x: hidden;
 }
 .weather-card {
-    // position: absolute;
-    // right: 0;
     width: 100%;
     border-radius: 35px;
     background-color: #102136;
@@ -86,13 +85,29 @@ height: 40px;
   margin-top: 10px;
 }
 
-.weather-button {
-  text-transform: uppercase;
+.today-button {
+  margin-right: 18px;
 }
 
+.weather-button {
+  text-transform: uppercase;
+  width: 126px;
+  height: 27px;
+  border-radius: 30px;
+  border: none;
+  margin-top: 21px;
+  background-color: #ffffff81;
+}
+
+.weather-button:focus {
+  background-color: #ffffff;
+}
 
 @media (min-width: 768px) {
     .weather-card {
         width: 492px;
+        margin-bottom: 0;
+        right: -31px;
+        position: relative;
     }
 }
