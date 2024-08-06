@@ -1,9 +1,11 @@
 import { initializeSearch } from './partials/searchBar';
-import { initializeWeatherCard } from './partials/weathercard.js';
-import { fetchAdditionalWeatherData } from './partials/additionalWeather.js';
+import {
+  initializeWeatherCard,
+  fetchAndDisplayWeatherForCity,
+} from './partials/weathercard.js';
+import { loadAndRenderChart } from './partials/graphic.js';
 
 document.addEventListener('DOMContentLoaded', async () => {
-  initializeSearch(); // Inițializează bara de căutare
-  initializeWeatherCard(); // Inițializează cardul meteo și afișează datele pentru București
-  fetchAdditionalWeatherData();
+  initializeSearch();
+  initializeWeatherCard();
 });
