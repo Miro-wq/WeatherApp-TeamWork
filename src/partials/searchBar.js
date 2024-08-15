@@ -74,10 +74,6 @@ function showCustomAlert(city, isAdded) {
   };
 }
 
-function capitalizeCityName(city) {
-  return city.charAt(0).toUpperCase() + city.slice(1).toLowerCase();
-}
-
 function addToFavorites(city) {
   city = capitalizeCityName(city); // Capitalizează numele orașului
   let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
