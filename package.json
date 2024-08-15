@@ -5,8 +5,9 @@
   "homepage": "https://MatacheAlexandru.github.io/WeatherApp-TeamWork",
   "scripts": {
     "start": "parcel src/*.html",
+    "dev": "parcel src/*.html --public-url /WeatherApp-TeamWork/",
     "sass": "node-sass --include-path scss src/sass/index.scss src/index.css -w",
-    "build": "parcel build src/*.html --no-minify --public-url /WeatherApp-TeamWork/"
+    "build": "parcel build src/*.html --public-url /WeatherApp-TeamWork/"
   },
   "repository": {
     "type": "git",
