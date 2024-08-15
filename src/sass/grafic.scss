@@ -1,0 +1,83 @@
+#chart-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+}
+
+.chart-show-button-container,
+.chart-hide-button-container {
+  display: flex !important;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-bottom: 2vw; /* Margină adaptivă pentru spațiere */
+}
+
+.chart-show-link,
+.chart-hide-link {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 40vw; /* Dimensiune adaptivă pentru buton */
+  height: auto; /* Dimensiune adaptivă pentru buton */
+
+  background-color: transparent;
+  border: none;
+  border-radius: 2vw; /* Colțuri rotunjite adaptiv */
+  font-family: Lato, sans-serif;
+  font-size: 1.5vw; /* Dimensiune adaptivă pentru font */
+  color: #e65b00;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.chart-show-link:hover,
+.chart-hide-link:hover {
+  color: #e61f00; /* Schimbă culoarea la hover */
+}
+
+.chart-show-link::after,
+.chart-hide-link::after {
+  content: '';
+  margin-left: 1vw;
+  width: 3vw;
+  height: 3vw;
+  max-width: 28px;
+  max-height: 28px;
+  border-radius: 50%;
+
+  position: absolute;
+}
+
+.chart-show-link::after {
+  transform: rotate(90deg);
+}
+
+.chart-hide-link::after {
+  transform: rotate(-90deg);
+}
+
+.chart-main-container {
+  position: relative;
+  padding-top: 2vw;
+  width: 80vw;
+
+  height: 70vw;
+
+  background: rgba(16, 33, 54, 0.8);
+  box-shadow: 0 1vw 4vw rgba(16, 33, 54, 0.6);
+  border-radius: 5vw;
+
+  padding-right: 5vw;
+  padding-left: 5vw;
+  display: none;
+}
+
+.canvas-wrapper {
+  position: relative;
+  height: 95%;
+  width: 100%;
+}

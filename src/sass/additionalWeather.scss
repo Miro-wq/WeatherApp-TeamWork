@@ -1,0 +1,329 @@
+p {
+  margin-bottom: 0;
+}
+#additional-weather-card {
+  display: flex;
+  box-sizing: border-box;
+  background: rgba(16, 33, 54, 0.8);
+  border-radius: 0 7vw 0 0;
+  justify-content: flex-start;
+  align-items: center;
+  width: 60vw;
+  height: 26vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+}
+
+.additional-card {
+  align-items: center;
+  width: 100%;
+  height: auto;
+}
+
+.current-date {
+  font-family: var(--font-family);
+  font-size: 4vw;
+  font-weight: 300;
+  line-height: 4vw;
+  letter-spacing: 0.04em;
+  color: rgba(255, 255, 255, 1);
+  text-align: left;
+  margin: 2vw 5vw 1.5vw 1vw;
+}
+
+.current-info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%;
+  height: auto;
+}
+
+.current-info span {
+  display: flex;
+  align-items: center;
+  margin: 0 2vw;
+}
+
+.current-month,
+.current-time,
+.sunrise-time,
+.sunset-time {
+  font-family: var(--font-family);
+  font-size: 1.2vw;
+  font-weight: 400;
+  line-height: 1.5vw;
+  letter-spacing: 0.04em;
+  text-align: left;
+  color: rgba(255, 255, 255, 1);
+}
+
+.current-month {
+  border-right: 0.1vw solid rgba(255, 255, 255, 1);
+  padding-right: 2vw;
+}
+
+.sunrise-time {
+  border-right: 0.1vw solid rgba(255, 255, 255, 1);
+  padding-right: 1vw;
+}
+
+#quote-card {
+  width: 35vw;
+  height: auto;
+  position: absolute;
+  bottom: 1.5vw;
+  right: 2vw;
+  max-width: 80%;
+  overflow-wrap: break-word;
+}
+
+.quote-text {
+  font-family: var(--font-family);
+  font-size: 2vw;
+  font-style: italic;
+  font-weight: bold;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: rgba(255, 255, 255, 1);
+}
+
+.quote-author {
+  font-family: var(--font-family);
+  font-size: 1.5vw;
+  font-weight: bold;
+  font-style: italic;
+  letter-spacing: 0.04em;
+  text-align: right;
+  color: rgba(255, 255, 255, 1);
+}
+
+span img {
+  width: 3vw;
+  height: 3vw;
+}
+
+/* Pentru telefoane mobile (max-width 480px) */
+@media screen and (max-width: 499px) {
+  #additional-weather-card {
+    border-radius: 7vw;
+    padding: 10vw;
+    padding-bottom: 23vw;
+    position: absolute;
+    bottom: 15vw;
+    left: 5vw;
+    width: 90vw;
+    top: 90vw;
+  }
+
+  .additional-card {
+    align-items: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 6vw;
+    right: 0;
+  }
+
+  .current-date {
+    font-size: 7vw;
+    margin: 0;
+    width: max-content;
+    height: auto;
+    margin-bottom: 5vw;
+  }
+
+  .current-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .current-info .first-row {
+    margin-bottom: 3vw;
+  }
+
+  #quote-card {
+    width: 90vw;
+    height: auto;
+    margin: 0 auto;
+    right: 5vw;
+    top: 130vw;
+  }
+
+  .quote-text {
+    font-size: 4vw;
+    line-height: 5vw;
+  }
+
+  .quote-author {
+    font-size: 3vw;
+    line-height: 4vw;
+  }
+}
+
+/* Pentru tablete (min-width 481px până la 1024px) */
+@media only screen and (min-width: 500px) and (max-width: 768px) {
+  #additional-weather-card {
+    border-radius: 7vw;
+    padding: 8vw;
+    position: absolute;
+    bottom: 10vw;
+    left: 10vw;
+    width: 80vw;
+    top: 60vw;
+  }
+
+  .additional-card {
+    align-items: center;
+    width: 100%;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    top: 2vw;
+    right: 0;
+  }
+
+  .current-date {
+    font-size: 8vw;
+    margin-bottom: 2vw;
+    width: max-content;
+    height: auto;
+    margin-bottom: 5vw;
+  }
+
+  .current-info {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .current-info .first-row {
+    margin-bottom: 2vw;
+  }
+
+  .current-month,
+  .current-time,
+  .sunrise-time,
+  .sunset-time {
+    font-size: 2vw;
+  }
+
+  #quote-card {
+    width: 80vw;
+    height: auto;
+    margin: 0 auto;
+    right: 10vw;
+    top: 110vw;
+  }
+
+  .quote-text {
+    font-size: 3vw;
+    line-height: 4vw;
+  }
+
+  .quote-author {
+    font-size: 2.5vw;
+    line-height: 3vw;
+  }
+}
+
+/* Pentru desktopuri mici și medii (până la 1440px) */
+@media only screen and (min-width: 769px) and (max-width: 1440px) {
+  #additional-weather-card {
+    width: auto;
+    height: auto;
+    border-radius: 0 7vw 0 0;
+    bottom: 0;
+    left: 0;
+    padding: 2vw;
+  }
+
+  #quote-card {
+    width: 30vw;
+    height: auto;
+    bottom: 2vw;
+    right: 2vw;
+  }
+
+  .current-date {
+    font-size: 3.5vw;
+    margin: 1vw;
+  }
+
+  .current-month,
+  .current-time,
+  .sunrise-time,
+  .sunset-time {
+    font-size: 1.5vw;
+  }
+
+  .quote-text {
+    font-size: 1.5vw;
+  }
+
+  .quote-author {
+    font-size: 1.2vw;
+  }
+}
+
+/* Pentru desktopuri mari (min-width 1441px) */
+@media only screen and (min-width: 1441px) {
+  #additional-weather-card {
+    width: auto;
+    height: 14vw;
+    border-radius: 0 5vw 0 0;
+    bottom: 0;
+    left: 0;
+    padding: 2vw;
+  }
+
+  #quote-card {
+    width: 25vw;
+    height: auto;
+    bottom: 0;
+    right: 2vw;
+  }
+
+  .current-date {
+    font-size: 3vw;
+    margin: 1vw;
+  }
+
+  .quote-text {
+    font-size: 1.6vw;
+  }
+
+  .quote-author {
+    font-size: 1.2vw;
+  }
+
+  .current-info span {
+    margin: 0 1vw;
+  }
+
+  .current-month,
+  .current-time,
+  .sunrise-time,
+  .sunset-time {
+    font-size: 1.8vw;
+  }
+
+  .current-month {
+    padding-right: 2vw;
+  }
+
+  .sunrise-time {
+    padding-right: 1.5vw;
+  }
+}
+
+#additional-weather-card,
+#quote-card {
+  display: none;
+}

@@ -1,8 +1,15 @@
 @import url(./sass/searchBar.scss);
 @import url(./sass/weathercard.scss);
-@import url(./sass/graphic.scss);
+@import url(./sass/grafic.scss);
+@import url(./sass/backgroundImage.scss);
 @import url(./sass/additionalWeather.scss);
 
 :root {
   --font-family: 'Lato', sans-serif;
+}
+
+body,
+html {
+  margin: 0;
+  padding: 0;
 }
